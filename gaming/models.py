@@ -24,5 +24,6 @@ class GameAttempt(models.Model):
        
 class User_Images(models.Model):
        user_id=models.ForeignKey(User)
-       image_path=models.CharField(max_length=50)
+       image_path=models.ImageField(upload_to='static')
+
 

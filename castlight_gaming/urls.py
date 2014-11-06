@@ -8,6 +8,7 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'castlight_gaming.views.home', name='home'),
     url(r'^index/$', views.index, name='detail'),
+    url(r'^first_page/$', views.show_random_user_profile, name='detail'),
     url(r'^gaming/level/$', views.index, name='level'),
     url(r'^admin/', include(admin.site.urls)),
 ]
