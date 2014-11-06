@@ -1,11 +1,62 @@
-Hello World
-{% load staticfiles %}
-<html>
-<table>
-{% for image in user_images %}
-    <tr class="image">
-        <img src= "/{{image.image_path}}" width="100" height="100"></img>
-    </tr>
-{% endfor %}
-<table>
-<html>
+<!DOCTYPE html>
+<html >
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+
+
+ 
+ 
+$(startGame).click(function(){
+var timer =10
+document.getElementById("timer").innerHTML =timer ;
+var myVar = setInterval(function(){myTimer()},1000);
+function myTimer() {
+$(guessImage).show();
+    timer --;
+    document.getElementById("timer").innerHTML = timer;
+    document.getElementById("content").innerHTML = "see this image thoroughly";
+if(timer ===0){
+clearInterval(myVar);
+    $(guessImage).hide();
+    $(content).hide();
+      
+}
+}
+  });
+});
+</script>
+</head>
+<body   background= "castlight-logo.jpg"; style ="background-size:700px; background-repeat: no-repeat;height:200px;left:200px;postion:fixed">
+
+
+<p>
+Welcome to Castlight Health gaming zone
+</p>
+
+
+
+<div>
+<button id ='startGame' style ='color:red,width:50px;'> start the game</button>
+</div>
+
+<p id ="timer"> </p>
+
+
+<img id ='guessImage'  src ='santoshk.jpg' style="width:150px ;height:150px;display:none">
+<p id ="content"></p>
+
+
+
+
+
+
+
+
+</body>
+</html>
+
