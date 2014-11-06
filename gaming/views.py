@@ -20,4 +20,4 @@ def fetch_level_based_data(request):
     'grid_count' : 3,
     'level_images' : level_images
   }
-  return render(request, 'gaming/level.html', context)    
+  return render(request, 'gaming/level.html', context)
