@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'castlight_gaming.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'castlight_gaming1',
+        'NAME': 'castlight_gaming',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
