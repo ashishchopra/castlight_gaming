@@ -8,4 +8,3 @@ def index(request):
     #context = {'latest_question_list': latest_question_list}
     context = {'latest_question_list': "adasdasdas"}
     return render(request, 'gaming/index.html', context)
-
