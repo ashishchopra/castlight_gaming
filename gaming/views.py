@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render\
+import random
 from django.db.models import Q
 from django.contrib.auth import authenticate, login
 from django.template import RequestContext
@@ -10,6 +11,12 @@ from django.contrib.auth.models import User
 # Import the model classes we just wrote.
 
 import random
+
+level_grid = {
+  1 : 9,
+  2 : 16,
+  3 : 25
+}
 
 def index(request):
     print request.user.id
@@ -30,9 +37,9 @@ def show_random_user_profile(request):
 
 def fetch_level_based_data(request):
   
-  level_images = {
-    1 : ""
-  }
+  user_images = User_Images.objects.filter(user_id!=current_user)
+  random_images_count = level_grid[level_no]
+  level_images = random.sample(user_images, random_images_count)
 
   context = {
     'level_no' : 1,
