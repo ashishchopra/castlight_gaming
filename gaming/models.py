@@ -2,25 +2,25 @@ from django.db import models
 
 # Create your models here.
 
-class MyModel (model.Model):
-	id=models.varchar(max_length=50)
-	name=models.varchar(max_length=50)
-        #user_id=models.varchar(max_length=50)
+class MyModel (models.Model):
+	#id=models.CharField(max_length=200)
+	name=models.CharField(max_length=200)
+        #user_id=models.CharField(max_length=50)
         class Meta:
              db_table = 'Users'
 
-class GameAttempt(meodel.Model):
-       id=models.varchar(max_length=50)
-       user_id=models.varchar(max_length=50)
-       game_id=models.varchar(max_length=50)
-       attempt_date=models.datetime(max_length=50)
-       score=models.varchar(max_length=50)
+class GameAttempt(models.Model):
+       #id=models.CharField(max_length=200)
+       user_id=models.CharField(max_length=50)
+       game_id=models.CharField(max_length=50)
+       #attempt_date=models.DateTime(max_length=50)
+       score=models.CharField(max_length=50)
        
-class User_Images(model.Model):
-       id=models.varchar(max_length=50)
-       user_id=models.varchar(max_length=50)
-       image_path=models.varchar(max_length=50)
+class User_Images(models.Model):
+       #id=models.CharField(max_length=50)
+       user_id=models.CharField(max_length=50)
+       image_path=models.CharField(max_length=50)
 
-class Game(model.Model):
-       id=models.varchar(max_length=50)
-       game_name=models.varchar(max_length=50)
+class Game(models.Model):
+       #id=models.CharField(max_length=50)
+       game_name=models.CharField(max_length=50)
