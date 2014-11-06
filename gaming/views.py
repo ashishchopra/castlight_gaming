@@ -1,9 +1,11 @@
-from django.shortcuts import render\
+from django.shortcuts import render
 import random
 from django.db.models import Q
 from django.contrib.auth import authenticate, login
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 # Create your views here.
 from gaming.models import User_Images
@@ -18,12 +20,14 @@ level_grid = {
   3 : 25
 }
 
+@login_required
 def index(request):
     print request.user.id
     user_images = User_Images.objects.all()
     context = {'user_images': user_images}
     return render(request, 'gaming/index.html', context)
 
+@login_required
 def show_random_user_profile(request):
   users_count = User.objects.count()
   n = random.randint(1,users_count)
@@ -35,6 +39,7 @@ def show_random_user_profile(request):
   else:
     pass  
 
+@login_required
 def fetch_level_based_data(request):
   
   user_images = User_Images.objects.filter(user_id!=current_user)
@@ -65,3 +70,9 @@ def user_login(request):
         return HttpResponse("Invalid login details supplied.")
   else:
       return render(request, 'gaming/login.html', context)
+
+# Use the login_required() decorator to ensure only those logged in can access the view.
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/login/')
